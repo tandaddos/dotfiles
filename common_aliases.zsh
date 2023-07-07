@@ -1,5 +1,5 @@
 # cd stuff
-alias -='cd -'
+# alias "-"='cd -'
 alias ...=../..
 alias ....=../../..
 alias .....=../../../..
@@ -51,6 +51,7 @@ function nvims() {
 
 # ls stuff
 alias e=exa
+alias ea='exa -a'
 alias el='exa -lF'
 alias elr='el -R'
 alias elt='el -T'
