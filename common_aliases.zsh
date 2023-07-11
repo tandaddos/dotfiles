@@ -119,7 +119,7 @@ function kiss() {
     CTRL-p to toggle preview
     ')
 
-  if [ -d "$${selection}" ]; then
+  if [ -d "${selection}" ]; then
     cd "${selection}"
   else
     $EDITOR "${selection}"
