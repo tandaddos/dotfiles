@@ -389,7 +389,7 @@ fgst() {
 # 
 # 	show git status
 #
-g_show_git_status() {
+fshow_git_status() {
   is_in_git_repo &&
     git -c color.status=always status --short |
     fzf --height 40% -m --ansi --nth 2..,.. | awk '{print $2}'
@@ -398,7 +398,7 @@ g_show_git_status() {
 #	
 #	show git branches
 #
-g_show_git_branches() {
+fshow_git_branches() {
   is_in_git_repo &&
     git branch -a -vv --color=always | grep -v '/HEAD\s' |
     fzf --height 40% --ansi --multi --tac | sed 's/^..//' | awk '{print $1}' |
@@ -408,7 +408,7 @@ g_show_git_branches() {
 #	
 #	show git tags
 #
-g_show_git_tags() {
+fshow_git_tags() {
   is_in_git_repo &&
     git tag --sort -version:refname |
     fzf --height 40% --multi
@@ -417,7 +417,7 @@ g_show_git_tags() {
 #	
 #	show git hashes
 #
-g_show_git_hashes() {
+fshow_git_hashes() {
   is_in_git_repo &&
     git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph |
     fzf --height 40% --ansi --no-sort --reverse --multi | grep -o '[a-f0-9]\{7,\}'
@@ -426,7 +426,7 @@ g_show_git_hashes() {
 #	
 #	show git remotes
 #
-g_show_git_remotes() {
+fshow_git_remotes() {
   is_in_git_repo &&
     git remote -v | awk '{print $1 " " $2}' | uniq |
     fzf --height 40% --tac | awk '{print $1}'
