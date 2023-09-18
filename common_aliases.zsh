@@ -19,8 +19,10 @@ alias _='sudo '
 alias md='mkdir -p'
 alias rd=rmdir
 # alias which='alias | /usr/bin/which --tty-only --read-alias --show-tilde --show-dot'
-alias which-command=whence
-alias history=omz_history
+if [[ "$SHELL" = *"zsh"* ]]; then
+  alias which-command=whence
+  alias history=omz_history
+fi
 alias run-help=man
 
 # search compressed files
@@ -130,5 +132,9 @@ function kiss() {
 alias howto="tldr --list | fzf --preview='tldr {1} --color=always' --preview-window=right,70% "
 
 # zoxide stuff
-eval "$(zoxide init zsh)"
+if [[ "$SHELL" = *"zsh"* ]]; then
+    eval "$(zoxide init zsh)"
+else 
+    eval "$(zoxide init bash)"
+fi
 alias zz='z -'  # go back
