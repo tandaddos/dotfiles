@@ -138,3 +138,6 @@ else
     eval "$(zoxide init bash)"
 fi
 alias zz='z -'  # go back
+
+# my editor
+export EDITOR=vim
